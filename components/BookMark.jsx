@@ -17,7 +17,6 @@ const BookMark = () => {
   const [lists, setLists] = useState([])
 
   const [search, setSearch] = useState("")
-  const [tags] = useState([""])
 
   const colRef = collection(db, "bookmarks")
 
@@ -68,7 +67,7 @@ const BookMark = () => {
       <h1 className="font-bold text-[32px] text-center">
         BookMark Manager App
       </h1>
-      <div className="w-[50%] bg-yellow-200 p-10 rounded-md shadow-md">
+      <div className="w-[50%] bg-yellow-200 p-10 rounded-md shadow-md sm:w-[40%]">
         <form className="flex flex-col">
           <label className="font-semibold" for="title">
             Title
@@ -104,8 +103,8 @@ const BookMark = () => {
       </div>
       <input
         type="text"
-        placeholder="Search..."
-        className="p-3 rounded-md focus:outline-none w-[40%] bg-gray-200 shadow-md"
+        placeholder="Search by Title.."
+        className="p-3 rounded-md focus:outline-none w-[40%] sm:w-[30%] bg-gray-200 shadow-md"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
@@ -120,20 +119,20 @@ const BookMark = () => {
             return (
               <div
                 key={list.id}
-                className="w-full p-5 bg-gray-300 space-y-5 flex flex-col rounded-md"
+                className="w-full p-5 bg-gray-200 space-y-5 flex flex-col rounded-md shadow-md"
               >
-                <h1 className="font-semibold text-[20px]">{list.title}</h1>
+                <h1 className="font-semibold text-[20px] ">
+                  {list.title.toUpperCase()}
+                </h1>
                 <div className="flex flex-col space-y-2">
-                  <p>Tags</p>
-
-                  <a href={list.url} target="_blank">
-                    {list.url}
+                  <a href={list.url} target="_blank" title="visit link">
+                    Visit : {list.url}
                   </a>
                 </div>
                 <div className="flex justify-center items-center space-x-4">
                   <button
                     onClick={() => handleEdit(list.id, list.title, list.url)}
-                    className="p-4 bg-blue-500 rounded-md text-white"
+                    className="p-4 bg-blue-500 rounded-md text-white transform hover:scale-105"
                   >
                     Edit
                   </button>
@@ -141,7 +140,7 @@ const BookMark = () => {
                     onClick={() => {
                       handleDelete(list.id)
                     }}
-                    className="p-4 bg-blue-500 rounded-md text-white"
+                    className="p-4 bg-blue-500 rounded-md text-white transform hover:scale-105"
                   >
                     Delete
                   </button>
