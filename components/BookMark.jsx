@@ -125,7 +125,12 @@ const BookMark = () => {
                   {list.title.toUpperCase()}
                 </h1>
                 <div className="flex flex-col space-y-2">
-                  <a href={list.url} target="_blank" title="visit link">
+                  <a
+                    href={list.url}
+                    target="_blank"
+                    title="visit link"
+                    rel="noreferrer noopener"
+                  >
                     Visit : {list.url}
                   </a>
                 </div>

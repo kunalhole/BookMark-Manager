@@ -1,5 +1,6 @@
 {
   "name": "bookmark_manager",
+  "homepage": "https://kunalhole.github.io/BookMark-Manager",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,6 +11,7 @@
   },
   "dependencies": {
     "firebase": "^9.13.0",
+    "gh-pages": "^4.0.0",
     "next": "13.0.2",
     "react": "18.2.0",
     "react-dom": "18.2.0"
